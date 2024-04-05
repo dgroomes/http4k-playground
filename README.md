@@ -35,17 +35,17 @@ Follow these instructions to build and run the demo program.
      $ curl http://localhost:8080
      Hello from an http4k program!
      
-     This server is running on a Netty server. You made a request from an HTTP client with a user agent value of: curl/7.84.0
+     This server is powered by Apache HttpComponents. You made a request from an HTTP client with a user agent value of: curl/8.4.0
      ```
 5. Stop the server
    * Issue a `SIGINT` signal using the `Ctrl + C` keyboard shortcut from the same shell you started the program.
    * Altogether, it should look like this from start to stop:
      ```text
      $ ./build/install/http4k-playground/bin/http4k-playground
-     21:46:40 INFO main - Starting the server...
-     21:46:40 INFO main - The server has started. Send an HTTP request to it!
-     ^C21:46:54 INFO main - Shutting down the server...
-     21:46:58 INFO main - The server is stopped. Goodbye.
+     18:35:37 INFO main - Starting the server...
+     18:35:37 INFO main - The server has started. Send an HTTP request to it!
+     ^C18:36:08 INFO main - Shutting down the server...
+     18:36:08 INFO main - The server is stopped. Goodbye.
      ```
 
 

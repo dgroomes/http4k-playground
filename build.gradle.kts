@@ -12,9 +12,9 @@ application {
 }
 
 dependencies {
+    implementation(libs.http4k.apache)
     implementation(platform(libs.http4k.bom))
     implementation(libs.http4k.core)
-    implementation(libs.http4k.netty)
     implementation(libs.slf4j.api)
     runtimeOnly(libs.slf4j.simple)
 }
