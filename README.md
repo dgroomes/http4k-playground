@@ -7,11 +7,17 @@
 > --<cite>https://www.http4k.org</cite>
 
 
+## Overview
+
+http4k offers an ergonomic routing API for HTTP-based applications. This repository is me exploring it. 
+
+
 ## Instructions
 
-Follow these instructions to build and run the demo program:
+Follow these instructions to build and run the demo program.
 
-1. Use Java 17
+1. Pre-requisite: Java
+   *  I used Java 21
 2. Build the program distribution:
    * ```shell
      ./gradlew installDist

@@ -1,0 +1,15 @@
+[versions]
+http4k = "5.14.4.0" # http4K releases: https://github.com/http4k/http4k/releases
+slf4j = "2.0.12" # SLF4J releases: http://www.slf4j.org/news.html
+
+[libraries]
+http4k-bom = { module = "org.http4k:http4k-bom", version.ref = "http4k" }
+http4k-core = { module = "org.http4k:http4k-core" }
+http4k-netty = { module = "org.http4k:http4k-server-netty" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
+
+[plugins]
+# Gradle's support for Kotlin: https://docs.gradle.org/current/userguide/compatibility.html
+# Kotlin's support for Gradle https://kotlinlang.org/docs/gradle.html
+kotlin-jvm = { version = "1.9.20", id = "org.jetbrains.kotlin.jvm" }
