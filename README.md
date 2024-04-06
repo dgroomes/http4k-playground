@@ -37,7 +37,28 @@ Follow these instructions to build and run the demo program.
      
      This server is powered by Apache HttpComponents. You made a request from an HTTP client with a user agent value of: curl/8.4.0
      ```
-5. Stop the server
+5. Try these other requests and see what you get:
+   * ```shell
+     curl http://localhost:8080/message/1
+     ```
+   * This will return a 404 response because there are no messages in the system. Let's create some messages.
+   * ```shell
+     curl -X POST -d 'Hello, world!' http://localhost:8080/messages
+     curl -X POST -d 'Hello, world, again!' http://localhost:8080/messages
+     curl -X POST -d 'Hello, world, one more time!' http://localhost:8080/messages
+     ```
+   * ```shell
+     curl http://localhost:8080/messages
+     ```
+   * This will list all the messages. Now, let's limit the messages to just the first two.
+   * ```shell
+     curl http://localhost:8080/messages?limit=2
+     ```
+   * Now, let's just review the second message alone.
+   * ```shell
+     curl http://localhost:8080/messages/2
+     ```
+6. Stop the server
    * Issue a `SIGINT` signal using the `Ctrl + C` keyboard shortcut from the same shell you started the program.
    * Altogether, it should look like this from start to stop:
      ```text
@@ -47,6 +68,16 @@ Follow these instructions to build and run the demo program.
      ^C18:36:08 INFO main - Shutting down the server...
      18:36:08 INFO main - The server is stopped. Goodbye.
      ```
+
+
+## Wish List
+
+General clean-ups, TODOs and things I wish to implement for this project:
+
+* [x] DONE Do something with path variables, query parameters and content negotiation. These use-cases are why we want
+  routing.
+* [ ] SKIP (no. now we're in the business of control flow via runtime exceptions. This is no longer "functional". If I
+  write my own handler code then I still get strong types, plus we get intentional error messaging) Look at the "lens" feature
 
 
 ## Reference
