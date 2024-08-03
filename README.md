@@ -16,8 +16,7 @@ http4k offers an ergonomic routing API for HTTP-based applications. This reposit
 
 Follow these instructions to build and run the demo program.
 
-1. Pre-requisite: Java
-   *  I used Java 21
+1. Pre-requisite: Java 21
 2. Build the program distribution:
    * ```shell
      ./gradlew installDist
@@ -35,7 +34,7 @@ Follow these instructions to build and run the demo program.
      $ curl http://localhost:8080
      Hello from an http4k program!
      
-     This server is powered by Apache HttpComponents. You made a request from an HTTP client with a user agent value of: curl/8.4.0
+     This server is powered by Apache HttpComponents. You made a request from an HTTP client with a user agent value of: curl/8.6.0
      ```
 5. Try these other requests and see what you get:
    * ```shell
@@ -56,7 +55,7 @@ Follow these instructions to build and run the demo program.
      ```
    * Now, let's just review the second message alone.
    * ```shell
-     curl http://localhost:8080/messages/2
+     curl http://localhost:8080/message/2
      ```
 6. Stop the server
    * Issue a `SIGINT` signal using the `Ctrl + C` keyboard shortcut from the same shell you started the program.
