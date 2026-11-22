@@ -16,7 +16,7 @@ http4k offers an ergonomic routing API for HTTP-based applications. This reposit
 
 Follow these instructions to build and run the demo program.
 
-1. Pre-requisite: Java 21
+1. Pre-requisite: Java 25
 2. Build the program distribution:
    * ```shell
      ./gradlew installDist

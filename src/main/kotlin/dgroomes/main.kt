@@ -24,14 +24,8 @@ val messages = mutableListOf<Message>()
 fun main() {
     val routes = routes(
         "/" bind Method.GET to ::rootHandler,
-        "/messages" bind Method.GET to ::getAllMessages,
         "/messages" bind routes(
-
-            // I can't get this to work. If I send a request with the "limit" query parameter it doesn't match this route.
-            // Also, I thought that there is some precedence problem so I tried to swap the order of the routes but that
-            // didn't have any effect.
             Method.GET.and(queries("limit")) bind ::getSomeMessages,
-
             Method.GET bind ::getAllMessages),
         "/message/{id}" bind Method.GET to ::getMessage,
         "/messages" bind Method.POST to ::createMessage
@@ -70,11 +64,15 @@ fun getAllMessages(@Suppress("UNUSED_PARAMETER") request: Request): Response {
 
 fun getSomeMessages(request: Request): Response {
     println("getSomeMessages")
-    val limitStr: String = request.query("limit")
-        ?: return Response(BAD_REQUEST).body("Expected a value for the 'limit' query parameter")
+    val limitStr = request.query("limit")
+    if (limitStr == null) {
+        return Response(BAD_REQUEST).body("Expected a value for the 'limit' query parameter")
+    }
 
     val limit = limitStr.toIntOrNull()
-        ?: return Response(BAD_REQUEST).body("The 'limit' query parameter must be an integer but was: '$limitStr'")
+    if (limit == null || limit < 0) {
+        return Response(BAD_REQUEST).body("The 'limit' query parameter must be a non-negative integer but was: '$limitStr'")
+    }
 
     val msg = messages.take(limit).joinToString("\n") { it.content }
     return Response(OK).body(msg)
